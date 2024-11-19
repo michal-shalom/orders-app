@@ -1,7 +1,24 @@
-Flask Kafka Cassandra Redis Project
-===================================
+**A distributed system for processing and tracking orders, built to demonstrate practical use of Flask, Kafka, Cassandra, and Redis. This project provides a REST API for creating and managing orders and demonstrates how to integrate modern distributed technologies.**
 
-A distributed system for processing and tracking orders, built to demonstrate practical use of Flask, Kafka, Cassandra, and Redis. This project provides a REST API for creating and managing orders and demonstrates how to integrate modern distributed technologies.
+System Architecture
+--------------------
+
++-------------+        +-------------+       +-------------+       +-------------+
+|             |        |             |       |             |       |             |
+|   Client    |        |    Flask    |       |    Kafka    |       |  Kafka      |
+|  (Postman,  |  --->  |    API      |  ---> |   Producer  |  ---> |  Consumer   |
+|   Curl,     |        | (Backend)   |       |   (Topic)   |       |  (Backend)  |
+|   Browser)  |        |             |       |             |       |             |
++-------------+        +-------------+       +-------------+       +-------------+
+                              |                                           |
+                              |                                           |
+                              v                                           v
+                       +-------------+                            +-------------+
+                       |             |                            |             |
+                       |   Redis     |                            | Cassandra   |
+                       |   (Cache)   |                            | (Database)  |
+                       |             |                            |             |
+                       +-------------+                            +-------------+
 
 Features
 --------
